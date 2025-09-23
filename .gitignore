@@ -1,0 +1,18 @@
+Here's a recommended .gitignore for your Node + frontend recipe project:
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# MacOS
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional: local IDE settings
+.vscode/
+.idea/
