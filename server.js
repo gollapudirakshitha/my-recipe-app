@@ -1,14 +1,9 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const path = require("path");
 const fetch = (...args) => import("node-fetch").then(({ default: f }) => f(...args));
 
-const app = express(); // <-- initialize app first
-
-// Serve frontend static files
-app.use(express.static(path.join(__dirname)));
-
+const app = express();
 app.use(cors());
 
 const PORT = process.env.PORT || 3000;
@@ -50,9 +45,9 @@ app.get("/api/recipeInfo", async (req, res) => {
   }
 });
 
-// Optional: ensure "/" serves index.html
+// Health check route
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.send("✅ Backend is running!");
 });
 
 app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
