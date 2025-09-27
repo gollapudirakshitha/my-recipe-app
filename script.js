@@ -12,9 +12,12 @@ function escapeHtml(s) {
   );
 }
 
+// Your Render backend base URL
+const BASE_URL = "https://my-recipe-app-azr8.onrender.com";
+
 // Fetch recipes from backend
 async function fetchRecipes(ingredients) {
-  const url = `/api/recipes?ingredients=${encodeURIComponent(ingredients)}&number=8`;
+  const url = `${BASE_URL}/recipes?ingredients=${encodeURIComponent(ingredients)}&number=8`;
   const res = await fetch(url);
   if (!res.ok) throw new Error('Network error');
   return res.json();
@@ -22,7 +25,7 @@ async function fetchRecipes(ingredients) {
 
 // Fetch detailed recipe info from backend
 async function fetchRecipeDetails(id) {
-  const url = `/api/recipeInfo?id=${id}`;
+  const url = `${BASE_URL}/recipeInfo?id=${id}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error('Network error');
   return res.json();
